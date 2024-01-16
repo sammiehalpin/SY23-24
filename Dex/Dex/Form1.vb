@@ -39,8 +39,22 @@ Public Class Form1
         If IO.File.Exists("data.txt") Then
             Dim inFile As New StreamReader("data.txt")
             records(0) = inFile.ReadLine
-            records(0) = inFile.ReadLine
             inFile.Close()
+            showrecord(0)
+        End If
+    End Sub
+    Public Sub showrecord(index As Integer)
+        Dim fields() As String
+        fields = records(index).Split("|")
+        field1.Text = fields(0)
+        Field2.Text = fields(1)
+        Field3.Text = fields(2)
+        Field4.Text = fields(3)
+        Field5.Text = fields(4)
+        If File.Exists(fields(5)) Then
+            PictureBox1.Load(fields(5))
+
+
         End If
     End Sub
 End Class
